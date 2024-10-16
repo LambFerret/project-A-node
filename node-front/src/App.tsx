@@ -1,4 +1,3 @@
-
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './Route';
 import Footer from './components/Footer';
@@ -7,12 +6,12 @@ import Header from './components/Header';
 function App() {
   return (
     <Router>
-      <div>
+      <div className="app-container">
         <Header />
         <div className="container">
           <br />
           <br />
-        <AppRoutes />
+          <AppRoutes />
         </div>
         <Footer />
       </div>
