@@ -1,4 +1,4 @@
-import { X_AUTH_TOKEN } from "./constant";
+import { AUTHORIZATION } from "./constant";
 
 export const setCookie = (name: string, value: string, days: number) => {
     const date = new Date();
@@ -14,12 +14,20 @@ export const getCookie = (name: string) => {
     }
 }
 
+export const getAuth = () =>{
+    return getCookie(AUTHORIZATION);
+}
+
+export const deleteAuth = () =>{
+    deleteCookie(AUTHORIZATION);
+}
+
 export const deleteCookie = (name: string) => {
     document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
 }
 
 export const isTokenValid  = () : boolean=>{
-    const token = getCookie(X_AUTH_TOKEN);
+    const token = getCookie(AUTHORIZATION);
     if(token){
         return true;
     }

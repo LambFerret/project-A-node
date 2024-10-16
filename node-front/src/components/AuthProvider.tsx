@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
+import { deleteAuth, deleteCookie } from '../utils/util';
 
 // Auth 상태 관리용 Context 생성
 interface AuthContextType {
@@ -17,13 +18,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
 
     const login = () => {
-       
+
         setIsAuthenticated(true);
         localStorage.setItem('isAuthenticated', 'true');
     }
-    const logout = () => {setIsAuthenticated(false);
+    const logout = () => {
+        setIsAuthenticated(false);
         localStorage.removeItem('isAuthenticated');
-
+        deleteAuth();
+        window.location.reload();  // 페이지 리프레시
     }
 
     return (

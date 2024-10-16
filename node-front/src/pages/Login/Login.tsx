@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import './Login.css';
 import { useAuth } from '../../components/AuthProvider';
 import { useNavigate } from 'react-router-dom';
-import { X_AUTH_TOKEN } from '../../utils/constant';
+import { AUTHORIZATION } from '../../utils/constant';
 import { setCookie } from '../../utils/util';
+import { log } from 'console';
 
 const Login: React.FC = () => {
     const [password, setPassword] = useState('');
@@ -31,9 +32,10 @@ const Login: React.FC = () => {
                 },
                 data: JSON.stringify({ password }),
             });
-            const key = response.headers[X_AUTH_TOKEN];
+            const key = response.headers[AUTHORIZATION];
+            console.log(response.headers);
             console.log(key);
-            setCookie(X_AUTH_TOKEN, key, 1);
+            setCookie(AUTHORIZATION, key, 1);
 
             if (response.status === 200) {
                 setLoginStatus('success');

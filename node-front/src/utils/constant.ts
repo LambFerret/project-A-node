@@ -1,1 +1,1 @@
-export const X_AUTH_TOKEN = 'x-auth-token';
+export const AUTHORIZATION = 'authorization';
