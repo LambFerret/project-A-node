@@ -1,9 +1,11 @@
 import React from 'react';
+import './Header.css';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
     return (
         <header>
-            <h1>My Header</h1>
+            <Link to="/" className="logo">MySite</Link>
         </header>
     );
 };

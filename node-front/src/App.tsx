@@ -9,7 +9,11 @@ function App() {
     <Router>
       <div>
         <Header />
+        <div className="container">
+          <br />
+          <br />
         <AppRoutes />
+        </div>
         <Footer />
       </div>
     </Router>
